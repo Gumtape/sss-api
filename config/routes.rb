@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
   get '/courses', to:'courses#index'
-  get '/courses/all/:id', to:'courses#show'
+  get '/courses/:id', to:'courses#show'
   get '/courses/:id/:text', to:'courses#search'
   post '/courses', to:'courses#create'
 
