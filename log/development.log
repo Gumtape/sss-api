@@ -6743,3 +6743,27 @@ Processing by CoursesController#show as */*
 Completed 200 OK in 51ms (Views: 28.9ms | ActiveRecord: 8.0ms)
 
 
+Started GET "/courses/all/1" for 127.0.0.1 at 2018-10-20 15:47:07 +0900
+Processing by CoursesController#show as */*
+  Parameters: {"id"=>"1", "course"=>{}}
+  [1m[36mCourse Load (1.0ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:13
+  Rendering courses/show.json.jbuilder
+  [1m[36mSpot Load (0.0ms)[0m  [1m[34mSELECT "spots".* FROM "spots" WHERE "spots"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.json.jbuilder:1
+  Rendered courses/show.json.jbuilder (28.9ms)
+Completed 200 OK in 46ms (Views: 39.6ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/courses/1/Muno" for 127.0.0.1 at 2018-10-20 15:47:23 +0900
+Processing by CoursesController#search as */*
+  Parameters: {"id"=>"1", "text"=>"Muno", "course"=>{}}
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:23
+  Rendering courses/search.json.jbuilder
+  [1m[36mSpot Load (1.0ms)[0m  [1m[34mSELECT "spots".* FROM "spots" WHERE "spots"."course_id" = ? AND "spots"."name" = ?[0m  [["course_id", 1], ["name", "Muno"]]
+  ↳ app/views/courses/search.json.jbuilder:1
+  Rendered courses/search.json.jbuilder (3.0ms)
+Completed 200 OK in 15ms (Views: 11.5ms | ActiveRecord: 1.0ms)
+
+

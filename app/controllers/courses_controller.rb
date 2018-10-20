@@ -8,19 +8,19 @@ class CoursesController < ApplicationController
 
   # GET /courses/:name
   def show
-    #@course = Course.spot.where(cource_id: params[:id],name: params[:text])
-    #@course = Course.joins(:spot).where"course_id == ? and name == ?",params[:id],params[:name]
+    #course = Course.where "name == ?",params[:name]
     #@course = Course.find_by(name: params[:name])
-    @course = Course.find(params[:id]).spot.where(name: params[:text])
+    @course = Course.find(params[:id])
     
     #render json: @course
     render 'show', formats: 'json', handlers: 'jbuilder'
   end
 
   def search
-    @course = Course.where "name == ?",params[:name]
+    #@course = Course.spot.where(cource_id: params[:id],name: params[:text])
+    #@course = Course.joins(:spot).where"course_id == ? and name == ?",params[:id],params[:name]
     #@course = Course.find_by(name: params[:name])
-    #@course = Course.find(params[:id])
+    @course = Course.find(params[:id]).spot.where(name: params[:text])
     
     render 'search', formats: 'json', handlers: 'jbuilder'
   end
