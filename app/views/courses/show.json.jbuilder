@@ -1,3 +1,1 @@
-#json.spots do
-json.array! @course.spot, :name, :GPS_X, :GPS_Y
-#end
+json.array! @course.spot, :id, :name, :GPS_X, :GPS_Y
