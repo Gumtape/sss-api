@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/spots', to:'spots#index'
   get '/spots/:id/:name', to:'spots#show'
   post '/spots', to:'spots#create'
+  #get  '/spots/:id/dounload', to:'spots#download'
   #put '/spots/:id/upload', to:'spots#imageup'
 
   get '/courses', to:'courses#index'
@@ -22,8 +23,6 @@ Rails.application.routes.draw do
   get '/exchanges', to:'exchanges#index'
   get '/exchanges/:user_id/:course_id', to:'exchanges#show'
   post '/exchanges', to:'exchanges#create'
-
-  get 'images/:id', to:'images#show'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
